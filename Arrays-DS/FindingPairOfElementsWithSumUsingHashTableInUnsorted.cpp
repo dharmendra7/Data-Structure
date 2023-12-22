@@ -11,7 +11,7 @@ class Array{
         Array(int sz)
         {
             size = sz;
-            length = 0;
+            length;
             A = new int[sz];
         }
         
@@ -47,24 +47,21 @@ class Array{
             return min;
         }
        
-        void FindMissingUsingHashTable()
+        void FindaPairWithSum(int k)
         {
             int l = min();
             int h = max();
             Array *arr2 = new Array(h);
             
-            for(int i=0; i<=h;i++){
+            for(int i=0; i<h;i++)
                 arr2->Append(0);
-            }
             
-            for(int i=0; i<length; i++)
+            for(int i=0; i<=length; i++)
             {
-                arr2->A[A[i]]++;
-            }
-            for(int i=l; i<=h; i++)
-            {
-                if(arr2->A[i] == 0)
-                    cout<<i<<" ";
+                if(A[i] <= k && arr2->A[k - A[i]] != 0)
+                     cout<<"pair ("<<A[i]<<", "<<k-A[i]<<")\n";
+                else
+                    arr2->A[A[i]]++;
             }
         }
 };
@@ -84,6 +81,7 @@ int main()
         cin>>x;
         arr.Append(x);
     }
-    cout<<"Missing element Missing: ";
-    arr.FindMissingUsingHashTable();
+    cout<<"Pairs are: \n";
+    int k = 10;
+    arr.FindaPairWithSum(k);
 }

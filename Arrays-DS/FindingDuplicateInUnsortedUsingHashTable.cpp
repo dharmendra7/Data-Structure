@@ -47,24 +47,20 @@ class Array{
             return min;
         }
        
-        void FindMissingUsingHashTable()
+        void FindDuplicateUsingHashTable()
         {
             int l = min();
             int h = max();
             Array *arr2 = new Array(h);
             
-            for(int i=0; i<=h;i++){
+            for(int i=0; i<=h;i++)
                 arr2->Append(0);
-            }
-            
             for(int i=0; i<length; i++)
-            {
                 arr2->A[A[i]]++;
-            }
             for(int i=l; i<=h; i++)
             {
-                if(arr2->A[i] == 0)
-                    cout<<i<<" ";
+                if(arr2->A[i]>1)
+                    cout<<i<<" appering "<<arr2->A[i]<<" times.\n";
             }
         }
 };
@@ -85,5 +81,5 @@ int main()
         arr.Append(x);
     }
     cout<<"Missing element Missing: ";
-    arr.FindMissingUsingHashTable();
+    arr.FindDuplicateUsingHashTable();
 }
