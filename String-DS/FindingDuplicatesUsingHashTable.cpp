@@ -1,27 +1,20 @@
 #include <iostream>
 using namespace std;
 
-
-int main ()
+int main()
 {
+    char A[]="finding";
     int i, j;
-    char a[] = "finding";
-    int h[26];
-    
-    for(int i=0; i<26; i++)
-        h[i] = 0;
-    
-    for(int i=0; a[i]!='\0'; i++)
-        h[a[i]-97]+=1;
-    
-    for(int i=0; i<26; i++)
+    int H[26] = {0};
+    for(i=0; A[i]!='\0'; i++)
     {
-        if(h[i]>1)
-        {
+        H[A[i]-97]+=1;
+    }
+    for(i=0; i<26; i++)
+    {
+        if(H[i]>1){
             char temp = i+97;
-            cout<<"Character "<<temp<<" is occur "<<h[i]<<" times.\n";
+            cout<<"Character "<<temp<<" is occur "<<H[i]<<" times.\n";
         }
     }
-    
-    
 }
